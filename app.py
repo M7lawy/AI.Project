@@ -3,19 +3,53 @@ from gtts import gTTS
 from deep_translator import GoogleTranslator
 import streamlit as st
 
+# Set up Streamlit page configuration as the first command in the script
+st.set_page_config(
+    page_title="Speakify - Text-to-Speech & Translation App",
+    page_icon="weblogo2.png",  # Set the logo.png as the page icon
+    layout="centered",
+)
+
+# Define custom colors (replace with actual colors from the logo)
+PRIMARY_COLOR = "#0078D4"  # Example primary color (blue)
+SECONDARY_COLOR = "#FF8C00"  # Example secondary color (orange)
+TEXT_COLOR = "#333333"  # Dark text for readability
+BACKGROUND_COLOR = "#F4F4F4"  # Light background
+
+# Set custom theme using Streamlit's markdown
+st.markdown(
+    f"""
+    <style>
+    .reportview-container {{
+        background-color: {BACKGROUND_COLOR};
+    }}
+    .sidebar .sidebar-content {{
+        background-color: {BACKGROUND_COLOR};
+    }}
+    h1 {{
+        color: {PRIMARY_COLOR};
+    }}
+    .css-1v3fvcr {{
+        color: {TEXT_COLOR};
+    }}
+    .stButton > button {{
+        background-color: {PRIMARY_COLOR};
+        color: white;
+    }}
+    .stButton > button:hover {{
+        background-color: {SECONDARY_COLOR};
+    }}
+    </style>
+    """, unsafe_allow_html=True)
+
 # Ensure the 'static' directory exists
 if not os.path.exists('static'):
     os.makedirs('static')
 
-# Set up Streamlit page configuration
-st.set_page_config(
-    page_title="Text-to-Speech & Translation App",
-    page_icon="🎙️",
-    layout="centered",
-)
+# Add the logo and app name at the top
+st.image('weblogo2.png', use_container_width=True)  # Display the logo at the top of the page
 
-# App title
-st.title("🎙️ Text-to-Speech & Translation App")
+st.markdown("<h1 style='text-align: center;'>Speakify</h1>", unsafe_allow_html=True)
 st.markdown("Convert your text to speech or translate and convert it into audio!")
 
 # Sidebar for user options
