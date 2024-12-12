@@ -10,38 +10,6 @@ st.set_page_config(
     layout="centered",
 )
 
-# Define custom colors (replace with actual colors from the logo)
-PRIMARY_COLOR = "#0078D4"  # Example primary color (blue)
-SECONDARY_COLOR = "#FF8C00"  # Example secondary color (orange)
-TEXT_COLOR = "#333333"  # Dark text for readability
-BACKGROUND_COLOR = "#F4F4F4"  # Light background
-
-# Set custom theme using Streamlit's markdown
-st.markdown(
-    f"""
-    <style>
-    .reportview-container {{
-        background-color: {BACKGROUND_COLOR};
-    }}
-    .sidebar .sidebar-content {{
-        background-color: {BACKGROUND_COLOR};
-    }}
-    h1 {{
-        color: {PRIMARY_COLOR};
-    }}
-    .css-1v3fvcr {{
-        color: {TEXT_COLOR};
-    }}
-    .stButton > button {{
-        background-color: {PRIMARY_COLOR};
-        color: white;
-    }}
-    .stButton > button:hover {{
-        background-color: {SECONDARY_COLOR};
-    }}
-    </style>
-    """, unsafe_allow_html=True)
-
 # Ensure the 'static' directory exists
 if not os.path.exists('static'):
     os.makedirs('static')
