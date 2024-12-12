@@ -113,6 +113,13 @@ if st.button("Process"):
         # Corrected audio player for mobile compatibility
         st.audio(audio_filename, format="audio/mp3")
 
+        st.download_button(
+            label="Download Audio",
+            data=open(audio_filename, "rb"),
+            file_name="output.mp3",
+            mime="audio/mpeg"
+        )
+
 # Footer
 st.markdown(
     """
